@@ -1,0 +1,53 @@
+<!-- <h2>{{girl.name | uppercase}} Details</h2>
+<div><span>id: </span>{{girl.id}}</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="girl.name" placeholder="name">
+  </label>
+</div> -->
+
+
+<!-- <div *ngIf="selectedGirl">
+
+  <h2>{{selectedGirl.name }} Details</h2>
+  <div><span>id: </span>{{selectedGirl.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedGirl.name" placeholder="name">
+    </label>
+  </div>
+
+</div>  -->
+
+<!-- <app-girl-detail [girl]="selectedGirl"></app-girl-detail> -->
+
+<!-- <h2>My Girls</h2>
+<ul class="girls">
+ <li *ngFor="let girl of girls"
+  [class.selected]="girl === selectedGirl"
+  (click)="onSelect(girl)">
+  <span class="badge">{{girl.id}}</span> {{girl.name}}
+ </li>
+</ul> -->
+<h2>My  Super Girls</h2>
+<ul class="girls">
+    <li *ngFor="let girl of girls">
+      <a routerLink="/detalle/{{girl.id}}">
+        <span class="badge">{{girl.id}}</span> {{girl.name}}
+      </a>
+      <button class="delete" title="Eliminar girl"
+      
+      (click)="delete(girl)">x</button>      
+    </li>
+</ul>
+
+<div>
+  <label>Añade más Girls:
+    <input #girlName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(girlName.value); girlName.value=''">
+    Agregar
+  </button>
+</div>
+
